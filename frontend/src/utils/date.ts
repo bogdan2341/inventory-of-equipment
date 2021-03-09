@@ -29,3 +29,7 @@ export const getMonthAsString = (month: string): string => {
   const longName = monthName(date); // "July"
   return longName;
 };
+
+export const dateFormat = (date: Date, format: string) => {
+  return moment(date).format(format);
+};
