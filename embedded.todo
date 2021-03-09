@@ -1,0 +1,8 @@
+
+FIXME:
+    ☐ FIXME: Create new service for fetching mileage from database @file:///Users/admin/Programming/Javascrpt/InventoryApp/frontend/src/pages/mileage/EditMileagePerMonthPage.tsx#25
+
+TODO:
+    ☐ TODO: [Select Year] Replace that array @file:///Users/admin/Programming/Javascrpt/InventoryApp/frontend/src/components/MileageCalendar/SelectTrainAndDate.tsx#109
+    ☐ TODO: [Edit Mileage] Change names for parameters function @file:///Users/admin/Programming/Javascrpt/InventoryApp/frontend/src/pages/mileage/EditMileagePerMonthPage.tsx#24
+    ☐ TODO [Axios] Create error handing @file:///Users/admin/Programming/Javascrpt/InventoryApp/frontend/src/utils/axios.ts#7

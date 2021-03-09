@@ -1,0 +1,18 @@
+{
+  "name": "inventoryapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-frontend": "cd ./frontend/ && npm start",
+    "dev-backend": "cd ./backend/ && npm run dev",
+    "dev": "concurrently \"npm:dev-backend\" \"npm:dev-frontend\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clsx": "^1.1.1",
+    "concurrently": "^6.0.0"
+  }
+}

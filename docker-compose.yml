@@ -1,0 +1,15 @@
+version: "3.9" # optional since v1.27.0
+services:
+  web_service:
+    build: ./frontend
+    restart: always
+    ports:
+      - "3000:3000"
+
+  api_service:
+    build: ./backend
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT:4000
