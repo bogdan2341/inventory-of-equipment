@@ -1,4 +1,3 @@
-import React from "react";
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
@@ -27,7 +26,7 @@ function App() {
               <LoginPage />
             </Route>
             <Route path="/*">
-              <NotFoundPage/>
+              <NotFoundPage />
             </Route>
           </Switch>
         </AuthProvider>
