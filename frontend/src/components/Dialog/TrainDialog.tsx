@@ -8,7 +8,7 @@ import {
   TextField,
 } from "@material-ui/core";
 import { useState } from "react";
-import { TrainsData } from "../../services/api/trains";
+import { createNewTrain, TrainsData } from "../../services/api/trains";
 import { dateFormat } from "../../utils/date";
 
 export interface TrainDialogProps {
@@ -29,6 +29,16 @@ export function TrainDialog(props: TrainDialogProps) {
     const { name, value } = event.target;
     if (name)
       setFieldsData((prevProps) => ({ ...prevProps, [name]: cb(value) }));
+  };
+
+  const saveTrainToDataBase = async (trainData: TrainsData) => {
+    const { number, manufactureYear, dateOfLastKR } = trainData;
+    console.log(trainData);
+    try {
+      await createNewTrain(number, manufactureYear, dateOfLastKR);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -56,7 +66,7 @@ export function TrainDialog(props: TrainDialogProps) {
       </DialogContent>
       <DialogContent>
         <TextField
-          onChange={changeFieldHandler((d) => new Date(d))}
+          onChange={changeFieldHandler((d) => new Date(d).toISOString())}
           value={dateFormat(fieldsData.dateOfLastKR, "yyyy-MM-DD")}
           name="dateOfLastKR"
           type="date"
@@ -68,11 +78,18 @@ export function TrainDialog(props: TrainDialogProps) {
           }}
         />
       </DialogContent>
-      <DialogActions onClick={() => console.log(fieldsData)}>
-        <Button variant="contained" color="primary">
+      <DialogActions>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            props.onClose();
+            saveTrainToDataBase(fieldsData);
+          }}
+        >
           Добавить
         </Button>
-        <Button variant="outlined" color="primary">
+        <Button variant="outlined" color="primary" onClick={props.onClose}>
           Отмена
         </Button>
       </DialogActions>

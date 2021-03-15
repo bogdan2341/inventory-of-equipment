@@ -30,9 +30,7 @@ export function AllTrainsPage() {
   };
   useEffect(() => {
     fetchData();
-  }, []);
-
-  const openTrainDialogHandler = () => {};
+  }, [trains]);
 
   return (
     <div>
@@ -49,7 +47,6 @@ export function AllTrainsPage() {
         trains.map((el) => (
           <Card className={classes.card} key={el._id}>
             <Typography variant={"h4"}>{el.number}</Typography>
-            <p>Hello</p>
           </Card>
         ))
       )}
